@@ -52,8 +52,8 @@ _unescape(char *val)
 	return T_DEVICE;
 }
 
-"map" {
-	return T_MAP;
+"ports" {
+	return T_PORTMAP;
 }
 
 "unfence" {
