@@ -39,7 +39,7 @@ conline:
 	;
 
 unfline:
-	T_UNFENCE T_VAL T_VAL T_ENDL {
+	T_UNFENCE T_VAL T_ENDL {
 		printf("unfence\n");
 	}
 
