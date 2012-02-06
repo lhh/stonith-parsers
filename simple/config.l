@@ -48,15 +48,23 @@ _unescape(char *val)
 
 \#[^\n]* {}
 
-"device" {
+^"device" {
 	return T_DEVICE;
 }
 
-"ports" {
+^"options" {
+	return T_OPTIONS;
+}
+
+^"priority" {
+	return T_PRIO;
+}
+
+^"ports" {
 	return T_PORTMAP;
 }
 
-"unfence" {
+^"unfence" {
 	return T_UNFENCE;
 }
 

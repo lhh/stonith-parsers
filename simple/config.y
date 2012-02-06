@@ -10,8 +10,8 @@ int yyerror(const char *foo);
 %}
 
 %token <sval> T_VAL
-%token T_DEVICE T_CONNECT T_PORTMAP
-%token T_EQ T_ENDL T_UNFENCE
+%token T_DEVICE T_CONNECT T_PORTMAP T_PRIO
+%token T_EQ T_ENDL T_UNFENCE T_OPTIONS
 %left T_VAL
 
 %start stuff
@@ -38,6 +38,18 @@ conline:
 	}
 	;
 
+optline:
+	T_OPTIONS T_VAL assigns T_ENDL {
+		printf("Options\n");
+	}
+	;
+
+prioline:
+	T_PRIO T_VAL assigns T_ENDL {
+		printf("Priority\n");
+	}
+	;
+
 unfline:
 	T_UNFENCE T_VAL T_ENDL {
 		printf("unfence\n");
@@ -51,7 +63,7 @@ portinfo:
 	;
 
 portline:
-	T_MAP T_VAL portinfo T_ENDL {
+	T_PORTMAP T_VAL portinfo T_ENDL {
 		printf("port\n");
 	}
 	;
@@ -63,10 +75,14 @@ stuff:
 	devline stuff |
 	conline stuff |
 	portline stuff |
+	optline stuff |
+	prioline stuff |
 	unfline |
 	conline |
 	portline |
 	devline |
+	optline |
+	prioline |
 	T_ENDL
 	;
 
