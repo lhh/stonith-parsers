@@ -44,8 +44,13 @@ optline:
 	}
 	;
 
+vals:
+	T_VAL vals |
+	T_VAL
+	;
+
 prioline:
-	T_PRIO T_VAL assigns T_ENDL {
+	T_PRIO T_VAL vals T_ENDL {
 		printf("Priority\n");
 	}
 	;
