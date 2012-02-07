@@ -55,10 +55,10 @@ prioline:
 	}
 	;
 
-unfline:
-	T_UNFENCE T_VAL T_ENDL {
-		printf("unfence\n");
-	}
+//unfline:
+//	T_UNFENCE T_VAL T_ENDL {
+//		printf("unfence\n");
+//	}
 
 portinfo:
 	assign portinfo |
@@ -76,13 +76,13 @@ portline:
 
 stuff:
 	T_ENDL stuff |
-	unfline stuff |
+	//unfline stuff |
 	devline stuff |
 	conline stuff |
 	portline stuff |
 	optline stuff |
 	prioline stuff |
-	unfline |
+	//unfline |
 	conline |
 	portline |
 	devline |
